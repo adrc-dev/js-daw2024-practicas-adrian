@@ -1,0 +1,15 @@
+<script src="main.js"></script>
+<script>
+  // usamos la funcion para pedir palabras
+  let palabras = pedirPalabras();
+  // usamos la funcion para contar las palabras y transformarlo en un map
+  palabras = contarPalabras(palabras);
+  // creamos el mensaje que mostraremos
+  let mensaje = "Estas son tus palabras y las veces que se repiten: \n";
+  //completamos el mensaje
+  palabras.forEach(function (valor, clave) {
+    mensaje += `Palabra: ${clave} Veces: ${valor}\n`;
+  });
+  // mostramos el mensaje por pantalla
+  alert(mensaje);
+</script>
