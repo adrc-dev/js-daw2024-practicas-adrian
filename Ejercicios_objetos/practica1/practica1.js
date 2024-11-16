@@ -15,22 +15,25 @@ function Punto(coordX, coordY) {
   // metodo copiar objeto
   this.copia = () => {
     return new Punto(this.x, this.y);
-  }
+  };
 
-  // metodo suma 
+  // metodo suma
   this.suma = (newPunto) => {
     return new Punto(this.x + newPunto.x, this.y + newPunto.y);
-  }
+  };
 }
 
+// metodo para comprobar que es un numero y caso no lo sea
+// devolvera 0
 function comprobarInt(num) {
-  return Number.isInteger(num) ? num : 0;
+  return !isNaN(num) ? num : 0;
 }
 
-let a = new Punto('aa',20);
+// pruebas
+let a = new Punto("aa", 20);
 console.log(a.mostrarCoordenadas());
 
-a.cambiar(20,-8);
+a.cambiar(20, -8);
 console.log(a.mostrarCoordenadas());
 
 let b = a.copia();
