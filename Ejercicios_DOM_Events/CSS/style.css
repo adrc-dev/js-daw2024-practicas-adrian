@@ -1,0 +1,82 @@
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 50px;
+  background-color: #333;
+  color: antiquewhite;
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 24px;
+  border: none;
+  background: antiquewhite;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background: white;
+}
+
+#volver {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+li {
+  background-color: #222;
+  list-style-type: none;
+  text-align: center;
+  margin: 5px auto;
+  padding: 10px;
+  width: 50px;
+  border-radius: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.elemento {
+  font-size: 20px;
+  margin: 10px auto;
+  width: 150px;
+}
+
+.elemento:hover {
+  color: white;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.p3 {
+  border: 1px solid black;
+  padding: 1em;
+  position: fixed;
+  top: 100px;
+  width: 200px;
+  height: 100px;
+  color: purple;
+  text-shadow: 0px 0px 1px black;
+}
+
+#capa1 {
+  left: 50px;
+  cursor: grab;
+}
+
+#capa2 {
+  left: 400px;
+  background-color: white;
+}

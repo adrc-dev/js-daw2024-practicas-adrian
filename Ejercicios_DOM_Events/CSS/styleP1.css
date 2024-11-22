@@ -1,0 +1,37 @@
+#imagen {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 4px black;
+}
+
+#volver {
+  padding: 10px 20px;
+  font-size: 24px;
+  border: none;
+  background: antiquewhite;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+#volver:hover {
+  background: white;
+}
