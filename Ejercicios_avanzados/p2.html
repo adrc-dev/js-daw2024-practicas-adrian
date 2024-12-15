@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 2</title>
+  </head>
+  <body>
+    <h1>Practica 2</h1>
+    <p>
+      Crea una función que reciba un número en milisegundos y genere un
+      temporizador que escriba el texto "Tiempo concluido" cuando pasen esos
+      milisegundos. Realmente la función no escribe, genera una promesa cuyo
+      resultado es el texto nombrado. En caso de que no se cumpla la promesa, el
+      resultado será el texto: "El tiempo no va bien". Se decidirá que la
+      promesa no se ha cumplido cuando pase el doble de tiempo que el indicado.
+      Crea un programa que invoque esta función (con 5 segundos) y escriba por
+      pantalla (elemento HTML) los resultados de la promesa.
+    </p>
+    <button>¡TIEMPO!</button>
+    <h3 id="content"></h3>
+
+    <script>
+
+      const btnTiempo = document.querySelector('button');
+      btnTiempo.addEventListener('click', imprimir);
+
+      function temporizar(ms) {
+        return new Promise((resolve, reject) => {
+          let concluido = false;
+          let aleatorio = Math.random() < 0.5;
+          console.log((aleatorio) ? 'mal' : 'bien');
+          setTimeout(() => {
+            if (!concluido && !aleatorio) {
+              concluido = true;
+              resolve('¡Tiempo concluido! 🙉')
+            }
+          }, ms);
+
+          setTimeout(() => {
+            if(!concluido) {
+              concluido = true;
+              reject('¡El tiempo no va bien! 🙈')
+            }
+          }, ms * 2);
+        });
+      }
+
+      async function probar() {
+        try {
+          let text = await temporizar(5000);
+          return text;
+        } catch(error) {
+          return error;
+        }
+      }
+
+      async function imprimir() {
+        let content = document.getElementById('content');
+        content.textContent = await probar();
+      }
+      
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 1</title>
+  </head>
+  <body>
+    <h1>Pactica 1</h1>
+    <p>
+      Crea una página que muestre el número de visitas que has realizado en la
+      página. La cookie que creas caducará en un mes. Si se visita la página más
+      de 10 veces, el contador se pondrá a cero y se borrará la cookie
+      existente.
+    </p>
+    <h3 id="content"></h3>
+
+    <script>
+      const content = document.getElementById("content");
+
+      if (getCookie("contador") == "") {
+        setCookie("contador", 1, 30);
+        content.textContent =
+          "Bienvenido a la pagina contadora de visitas, caso vengas 10 veces en un més se reseteara el contador.";
+      } else {
+        let contador = parseInt(getCookie("contador"));
+        contador++;
+        setCookie("contador", contador, 30);
+        content.textContent = `Visita registrada, tenias ${
+          getCookie("contador") - 1
+        } visitas y ahora tienes ${getCookie("contador")} visitas.`;
+      }
+
+      if (parseInt(getCookie("contador")) >= 10) {
+        deleteCookie("contador");
+        content.textContent =
+          "Has llegado al limite de 10 visitas, reiniciamos el contador.";
+      }
+
+      // funcion para crear cookies
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      // funcion para ver cookies
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      // funcion para eliminar cookies
+      function deleteCookie(cname) {
+        document.cookie =
+          cname + "=; expires=Thu, 01 Jan 1970 00:00:01GMT;path=/";
+      }
+    </script>
+  </body>
+</html>
