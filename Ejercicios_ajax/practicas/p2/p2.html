@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Practica 2</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+    <h1>Practica 2</h1>
+    <p>
+      Se proporciona el siguiente código HTML y parte del código Javascript,
+      para utilizarlo si se desea (cogerlo de aules, fuera de esta tarea). Para
+      esta práctica se van a utilizar dos APIs (se recomienda utilizar la
+      herramienta Postman para ver qué pasa cuando se hace un GET o un POST a
+      las urls que se detallan a continuación):
+    </p>
+    <p>
+      -https://reqres.in/api/users/{number}, método GET, para obtener un listado
+      de usuarios
+    </p>
+    <p>
+      -https://httpbin.org/post, método POST, para enviar un usuario para que se
+      cree en la base de datos fictícia.
+    </p>
+    <p>
+      En la pantalla se mostrarán dos campos que debe introducir el usuario:
+    </p>
+    <p>
+      - El número de segundos de retraso para la petición de obtención de datos.
+    </p>
+    <p>
+      - El número de usuario que se recuperará de la base de datos ficticia:
+      Números válidos del 1 al 12.
+    </p>
+    <p>No se debe hacer ningún tipo de validación sobre esos campos.</p>
+    <p>
+      Habrá un botón de enviar. Al clicarse deben pasar las siguientes cosas:
+    </p>
+    <p>
+      1. Llamar a la primera URL para obtener el usuario que se ha introducido
+      en pantalla, con el retraso en segundos que se ha introducido en pantalla.
+      Esto sería un ejemplo de URL a invocar en caso de haberse introducido 2
+      segundos de retraso, usuario número 5:
+    </p>
+    <p>https://reqres.in/api/users/5?delay=5</p>
+    <p>
+      Hay que controlar el caso de que el usuario introduzca un número superior
+      a 12 o una letra. En ese caso, la llamada va a devolver un HTTP 404 (El
+      response.ok será false y el response.status tendrá el 404). En ese caso,
+      hay que lanzar una excepción que capturará nuestro catch correspondiente.
+    </p>
+    <p>
+      Si todo ha ido bien, se rellenarán los campos de pantalla ID y EMAIL, con
+      los valores de ID, EMAIL que devuelve el API.
+    </p>
+    <p>
+      2. Llamar a la segunda URL (https://httpbin.org/post), para hacerle un
+      POST del usuario que se ha obtenido en la primera llamada (json dentro del
+      atributo "data" de la primera llamada). En el body del post debe ir el
+      usuario (en formato JSON). Aquí estamos emulando la grabación de un
+      usuario en la base de datos. Esa llamada post devuelve un JSON, que dentro
+      del campo "json" tiene lo que se ha enviado en el body. Hay que
+      recuperarlo y rellenar el campo name de pantalla, con el valor del
+      atributo "first_name" que viene en la respuesta.
+    </p>
+    <p>
+      3. Para acabar hay que rellenar el campo status, con un 200 en caso de que
+      haya ido todo bien o el response.status en caso de que hayamos introducido
+      un número superior a 12 en el "número de usuario".
+    </p>
+    <p>
+      Para resolver esta práctica, se puede hacer mediante promesas o mediante
+      async/await.
+    </p>
+    <p>
+      Se muestra en el siguiente vídeo el resultado de ambos casos: una
+      ejecución correcta y una incorrecta (mirar en aules, fuera de este
+      archivo).
+    </p>
+    <button onclick="window.location.href='../../index.html'">Volver</button>
+    <br /><br /><br />
+
+    <main>
+      <h2>Entrada de datos</h2>
+      <form action="#">
+        <label>Número de segundos</label>
+        <input id="numsecs" autofocus /><br /><br />
+        <label>Número de usuario</label>
+        <input id="user" />
+        <br /><br />
+        <button id="execute">Ejecutar</button>
+      </form>
+      <div style="display: block">
+        <h2>Obtención usuario</h2>
+        <label>ID = </label>
+        <span id="id"></span><br />
+        <label>Email = </label>
+        <span id="email"></span><br />
+      </div>
+      <div style="display: block">
+        <h2>Creación usuario</h2>
+        <label>First Name = </label>
+        <span id="name"></span><br />
+      </div>
+      <div style="display: block">
+        <h2>Resultado Operaciones</h2>
+        <label>HTTP Status = </label>
+        <span id="status"></span><br />
+      </div>
+    </main>
+    <script src="scripts/p2.js"></script>
+  </body>
+</html>

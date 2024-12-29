@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>Ejercicio 1</h1>
+    <p>
+      Ej1: Usa fetch para obtener datos de una API pública y mostrarlos en la
+      consola. Usa la API pública https://reqres.in/api/users?page=1. Haz una
+      solicitud GET para obtener la lista de usuarios. Finalmente muestra el
+      resultado en la consola (el objeto)
+    </p>
+    <button onclick="window.location.href='../index.html'">Volver</button>
+    <script>
+      async function obtenerUsuarios() {
+        try {
+          const response = await fetch("https://reqres.in/api/users?page=1");
+          if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+          }
+          const data = await response.json();
+          console.log("Datos:", data);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+      obtenerUsuarios();
+    </script>
+  </body>
+</html>

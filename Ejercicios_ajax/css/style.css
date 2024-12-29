@@ -1,0 +1,19 @@
+* {
+  background-color: #333;
+  color: antiquewhite;
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+}
+a:hover {
+  color: white;
+  font-size: large;
+}
+#error {
+  color: red;
+  font-weight: bold;
+}
+
+#user {
+  margin-top: 100px;
+}

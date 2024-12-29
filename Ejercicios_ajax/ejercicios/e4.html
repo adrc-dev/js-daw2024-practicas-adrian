@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>Ejercicio 4</h1>
+    <p>
+      Ej4: Usa AJAX para enviar datos a un servidor. Usa el endpoint
+      https://reqres.in/api/users. Envía un objeto JSON con un name y un job
+      usando el método POST. Muestra la respuesta del servidor en la consola.
+      Usa el método fetch con las opciones method y body.
+    </p>
+    <button onclick="window.location.href='../index.html'">Volver</button>
+
+    <script>
+      const datos = {
+        name: "pedro",
+        job: "programador",
+      };
+
+      fetch("https://reqres.in/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datos),
+      }).then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`HTTP Error: ${response.status}`);
+        }
+      }).then(data => {
+        console.log("Respuesta del servidor:", data);
+      }).catch(error => {
+        console.error("Error en la peticion:", error);
+      });
+    </script>
+  </body>
+</html>
