@@ -1,0 +1,15 @@
+body, ul, li, a {
+  background-color: #333;
+  color: antiquewhite;
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+}
+a:hover {
+  color: white;
+  font-size: large;
+}
+
+#exVideo {
+  width: 650px;
+}

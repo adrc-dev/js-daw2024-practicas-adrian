@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>EJERCICIO 3</h1>
+    <p>
+      Implementa una notificación en el navegador al hacer clic en un botón.
+      <br />
+      Muestra la notificación con título, cuerpo y un ícono.
+    </p>
+
+    <button onclick="window.location.href='../index.html'">Volver</button
+    ><br /><br />
+
+    <button id="notificar">¡NOTIFICAME! 😈</button>
+
+    <script>
+      // pedimos permiso y notificamos caso se acepte
+      const permiso = Notification.permission;
+      if (permiso == "default") {
+        Notification.requestPermission().then((resp) => {
+          if (resp == "granted")
+            new Notification("Aceptado", {
+              body: "Gracias por aceptar las notificaciónes 😊",
+            });
+        });
+      }
+
+      // cazamos el boton
+      const notificame = document.getElementById("notificar");
+
+      // creamos el evento para que notifique cada vez que se clica
+      notificame.addEventListener("click", () => {
+        let notificacion = new Notification("NOTIFICADO 😵‍💫", {
+          body: "Has sido notificado por curioso",
+          icon: "pig_icon.png",
+        });
+
+        // hacemos que se cierre apos 2 segundos
+        setTimeout(() => notificacion.close(), 2000);
+        
+        // caso clique en la notificacion vuelve al index
+        notificacion.addEventListener("click", () => {
+          window.location.href = "../index.html";
+        });
+      });
+    </script>
+  </body>
+</html>

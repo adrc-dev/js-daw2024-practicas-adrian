@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 1</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+    <h1>PRACTICA 1</h1>
+    <p>
+      Crear una página web que al cabo de 5 segundos de estar en ella muestre
+      una notificación al usuario para que visite un nuevo video que se ha
+      publicado. Para ello, crea una función timeout que reciba el número de ms
+      como parámetro y cree una promesa con el timeout como acción. Además, que
+      salga por pantalla una cuenta atrás de 5 a 0 segundos. Cuando la cuenta
+      llegue a cero, se mostrará la notificación.
+    </p>
+
+    <p>
+      Cuando el usuario clica en la notificación, llevarle a una página en el
+      que se muestre el video que se adjunta en esta tarea.
+    </p>
+
+    <p>
+      Al hacer clic con el botón izquierdo del ratón en el video, éste se parará
+      o se reproducirá. Cada clic cambia de un estado a otro.
+    </p>
+
+    <p>
+      Al hacer clic con el botón derecho del ratón en el video, debe aparecer un
+      texto en la parte inferior que nos diga el tiempo total del vídeo en
+      minutos y segundos.
+    </p>
+
+    <p>
+      Video de como debe funcionar:
+    </p>
+
+    <video id="exVideo" src="ejemplo_exApis.mp4" controls>No se puede mostrar el video en este navegador.</video><br>
+
+    <button onclick="window.location.href='../../index.html'">Volver</button>
+
+    <div id="main"></div>
+    <script src="scripts/p1.js"></script>
+  </body>
+</html>

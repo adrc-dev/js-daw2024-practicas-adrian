@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>EJERCICIO 2</h1>
+    <p>
+      Añade un video a la página y agrega un menú desplegable para seleccionar
+      diferentes velocidades de reproducción.<br />
+      (por ejemplo, 0.5x, 1x, 1.5x, 2x).
+    </p>
+
+    <button onclick="window.location.href='../index.html'">Volver</button><br />
+
+    <video src="video_samoyedo.mp4" width="400px">No se puede mostrar en tu navegador</video><br>
+    <select name="velocidad" id="velocidad">
+      
+    </select>
+
+    <script>
+      // cazamos los elementos del documento
+      const video = document.querySelector('video');
+      const selector = document.getElementById('velocidad');
+
+      // inicializamos el video y lo ponemos en modo loop
+      video.play();
+      video.loop = true;
+
+      // inicializamos la variable velocidad
+      let velo = 0.5;
+
+      // mientras la velocidad sea menor que 0.5 crearemos opciones para nuestro desplegable
+      while (velo <= 2) {
+        let option = document.createElement('option');
+        option.textContent = `Velocidad: ${velo}x`;
+        option.value = velo;
+        if (velo === 1) {
+          option.selected = true; // que empiece en 1x
+        }
+        selector.appendChild(option);
+        velo += 0.5;
+      }
+      
+      // evento del selector para cambiar la velocidad del video
+      selector.addEventListener("change", () => {
+        video.playbackRate = selector.value;
+      });
+
+    </script>
+  </body>
+</html>

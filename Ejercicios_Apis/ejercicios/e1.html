@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>EJERCICIO 1</h1>
+    <p>
+      Cambia el color del fondo del sitio web según la latitud del usuario:<br />
+      Norte: Azul.<br />
+      Sur: Verde.<br />
+      Ecuador: Amarillo.
+    </p>
+
+    <button onclick="window.location.href='../index.html'">Volver</button>
+
+    <script>
+      navigator.geolocation.getCurrentPosition((pos) => {
+        if (pos.coords.latitude > 0) {
+          document.body.style.backgroundColor = "blue";
+        } else if (pos.coords.latitude < 0) {
+          document.body.style.backgroundColor = "green";
+        } else {
+          document.body.style.backgroundColor = "yellow";
+        }
+      });
+    </script>
+  </body>
+</html>
